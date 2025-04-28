@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "appMilUsuarios.Controllers.UsuariosController",
+    "Method": "Post",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "System.Collections.Generic.List\u00601[[Usuario, appMilUsuarios, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "appMilUsuarios.Controllers.UsuariosController",
+    "Method": "Get",
+    "RelativePath": "api/Usuarios/superusers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
