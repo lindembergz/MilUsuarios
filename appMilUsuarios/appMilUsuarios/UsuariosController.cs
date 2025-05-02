@@ -7,7 +7,6 @@ using Prometheus;
 
 
 //POC
-
 public class Team
 {
     public Guid Id { get; set; }
@@ -51,10 +50,21 @@ namespace appMilUsuarios
     {
         private readonly UsuarioContext _context;
 
+
+
         public UsuariosController(UsuarioContext context)
         {
             _context = context;
         }
+
+        private readonly Counter _importCounter = Metrics.CreateCounter(
+            "usuario_imports_total",
+            "Total de imports de usuários realizados"
+        );
+        private readonly Histogram _importDuration = Metrics.CreateHistogram(
+            "usuario_import_duration_seconds",
+            "Duração do processamento de imports em segundos"
+        );
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] List<Usuario> value)
@@ -64,10 +74,13 @@ namespace appMilUsuarios
 
             try
             {
-                await _context.Usuarios.AddRangeAsync(value); 
+                await _context.Usuarios.AddRangeAsync(value);
                 await _context.SaveChangesAsync();
 
                 stopwatch.Stop();
+                _importCounter.Inc(); 
+                _importDuration.Observe(stopwatch.Elapsed.TotalSeconds); 
+
                 return Ok(new
                 {
                     message = $"Importados {value.Count} usuários",
@@ -78,6 +91,7 @@ namespace appMilUsuarios
             catch (Exception ex)
             {
                 stopwatch.Stop();
+                _importDuration.Observe(stopwatch.Elapsed.TotalSeconds);
                 return StatusCode(500, new
                 {
                     error = ex.Message,
@@ -85,8 +99,6 @@ namespace appMilUsuarios
                     processingTimeMs = stopwatch.ElapsedMilliseconds
                 });
             }
-
-
         }
 
         [ResponseCache(Duration = 60)]
