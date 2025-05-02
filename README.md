@@ -35,3 +35,22 @@ Recebe e armazena os usuários na memória. Pode simular um banco de dados em me
 GET /superusers
 Filtro: score >= 900 e active = true
 Retorna os dados e o tempo de processamento da requisição.
+
+Observações: 
+
+Para ter acesso as ferramentas de metricas, você precisará do Docker para a execução do docker-compose.yaml
+
+docker-compose up --build
+docker ps
+
+Criação do Arquivo machine-id (para o cadvisor)
+
+O cadvisor precisa de um machine-id para evitar o erro de UUID. Crie o arquivo no mesmo diretório do docker-compose.yaml:
+
+No Windows, use o PowerShell ou um terminal para gerar um UUID
+powershell -Command "[guid]::NewGuid().ToString().Replace('-', '') | Out-File -FilePath machine-id"
+
+Linux: sudo systemd-machine-id-setup   ou  sudo sh -c 'uuidgen | tr -d "\n" > /etc/machine-id'
+
+Isso criará um arquivo machine-id com um UUID válido.
+
