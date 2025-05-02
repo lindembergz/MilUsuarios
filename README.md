@@ -50,7 +50,9 @@ O cadvisor precisa de um machine-id para evitar o erro de UUID. Crie o arquivo n
 No Windows, use o PowerShell ou um terminal para gerar um UUID<br>
 powershell -Command "[guid]::NewGuid().ToString().Replace('-', '') | Out-File -FilePath machine-id"<br>
 
-Linux: sudo systemd-machine-id-setup   ou  sudo sh -c 'uuidgen | tr -d "\n" > /etc/machine-id'<br>
+Linux:<br>
+<br>sudo systemd-machine-id-setup   ou  
+<br>sudo sh -c 'uuidgen | tr -d "\n" > /etc/machine-id'<br>
 
 Isso criará um arquivo machine-id com um UUID válido.
 
