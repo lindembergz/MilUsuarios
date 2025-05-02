@@ -1,15 +1,15 @@
 <h2>Desafio Técnico: Performance e Análise de Dados via API</h2>
 
-Objetivo
+Objetivo<br>
 
-Você tem 1 hora para criar uma API que recebe um arquivo JSON com 100.000 usuários e oferece endpoints performáticos e bem estruturados para análise dos dados.
+Você tem 1 hora para criar uma API que recebe um arquivo JSON com 100.000 usuários e oferece endpoints performáticos e bem estruturados para análise dos dados.<br>
 
-Exemplos de respostas esperadas na API
-Arquivo com 100 mil usuários para importar
-Arquivo com 1 mil usuário para teste
-JSON de entrada
-
-O JSON contém uma lista de usuários com a seguinte estrutura:
+Exemplos de respostas esperadas na API<br>
+Arquivo com 100 mil usuários para importar<br>
+Arquivo com 1 mil usuário para teste<br>
+JSON de entrada<br>
+<br><br>
+O JSON contém uma lista de usuários com a seguinte estrutura:<br>
 
 {
   "id": "uuid",
@@ -40,17 +40,17 @@ Retorna os dados e o tempo de processamento da requisição.
 
 Para ter acesso as ferramentas de metricas, você precisará do Docker para a execução do docker-compose.yaml
 
-docker-compose up --build
+docker-compose up --build<br>
 docker ps
 
-Criação do Arquivo machine-id (para o cadvisor)
+Criação do Arquivo machine-id (para o cadvisor)<br>
 
-O cadvisor precisa de um machine-id para evitar o erro de UUID. Crie o arquivo no mesmo diretório do docker-compose.yaml:
+O cadvisor precisa de um machine-id para evitar o erro de UUID. Crie o arquivo no mesmo diretório do docker-compose.yaml:<br>
 
-No Windows, use o PowerShell ou um terminal para gerar um UUID
-powershell -Command "[guid]::NewGuid().ToString().Replace('-', '') | Out-File -FilePath machine-id"
+No Windows, use o PowerShell ou um terminal para gerar um UUID<br>
+powershell -Command "[guid]::NewGuid().ToString().Replace('-', '') | Out-File -FilePath machine-id"<br>
 
-Linux: sudo systemd-machine-id-setup   ou  sudo sh -c 'uuidgen | tr -d "\n" > /etc/machine-id'
+Linux: sudo systemd-machine-id-setup   ou  sudo sh -c 'uuidgen | tr -d "\n" > /etc/machine-id'<br>
 
 Isso criará um arquivo machine-id com um UUID válido.
 
