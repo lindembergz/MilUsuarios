@@ -36,7 +36,7 @@ GET /superusers
 Filtro: score >= 900 e active = true
 Retorna os dados e o tempo de processamento da requisição.
 
-Observações: 
+<h2>Observações:</h2> 
 
 Para ter acesso as ferramentas de metricas, você precisará do Docker para a execução do docker-compose.yaml
 
