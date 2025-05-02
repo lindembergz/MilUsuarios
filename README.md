@@ -54,12 +54,12 @@ Linux:<br>
 <br>sudo systemd-machine-id-setup   ou  
 <br>sudo sh -c 'uuidgen | tr -d "\n" > /etc/machine-id'<br>
 
-Isso criará um arquivo machine-id com um UUID válido.
+Isso criará um arquivo machine-id com um UUID válido.<br>
 
-Boa sorte
+Boa sorte<br>
 
-localhost:8080/swagger (Swagger da aplicação)
-localhost:8081 (cAdvisor)
-localhost:9100 (Node Exporter)
-localhost:9090 (Prometheus)
-localhost:3000 (Grafana, login: admin/admin)
+localhost:8080/swagger (Swagger da aplicação)<br>
+localhost:8081 (cAdvisor)<br>
+localhost:9100 (Node Exporter)<br>
+localhost:9090 (Prometheus)<br>
+localhost:3000 (Grafana, login: admin/admin)<br>
