@@ -1,10 +1,9 @@
+using Prometheus;
 using System;
 using appMilUsuarios;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services.AddControllers();
 
@@ -16,13 +15,24 @@ builder.Services.AddResponseCompression();
 
 var app = builder.Build();
 
-app.UseAuthorization();
+app.UseRouting();
+
+app.UseMetricServer(); // Expõe métricas em /metrics
+app.UseHttpMetrics();
 
 app.MapControllers();
 
+
+
+app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapMetrics(); // Endpoint /metrics
+});
+
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.UseResponseCompression();
 
 app.Run();
