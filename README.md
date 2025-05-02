@@ -2,7 +2,7 @@
 
 Objetivo<br>
 
-Você tem 1 hora para criar uma API que recebe um arquivo JSON com 100.000 usuários e oferece endpoints performáticos e bem estruturados para análise dos dados.<br>
+Você tem que criar uma API que recebe um arquivo JSON com 100.000 usuários e oferece endpoints performáticos e bem estruturados para análise dos dados.<br>
 
 Exemplos de respostas esperadas na API<br>
 Arquivo com 100 mil usuários para importar<br>
@@ -56,3 +56,10 @@ Linux:<br>
 
 Isso criará um arquivo machine-id com um UUID válido.
 
+Boa sorte
+
+localhost:8080/swagger (Swagger da aplicação)
+localhost:8081 (cAdvisor)
+localhost:9100 (Node Exporter)
+localhost:9090 (Prometheus)
+localhost:3000 (Grafana, login: admin/admin)
