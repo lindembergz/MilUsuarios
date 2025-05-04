@@ -63,3 +63,8 @@ localhost:8081 (cAdvisor)<br>
 localhost:9100 (Node Exporter)<br>
 localhost:9090 (Prometheus)<br>
 localhost:3000 (Grafana, login: admin/admin)<br>
+
+![image](https://github.com/user-attachments/assets/63c21cb8-7e41-4266-8581-3e650b54e280)
+
+
+
